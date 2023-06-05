@@ -41,11 +41,11 @@ public class Ventana extends JFrame {
 
     public Ventana(String title) throws HeadlessException {
 
-        //panel 1
         super(title);
         this.setSize(1200, 800);
         this.layout = new GridLayout(2, 2);
         this.getContentPane().setLayout(this.layout);
+        //panel 1
         this.panel1 = new JPanel(new FlowLayout());
         this.panel1.setBackground(new Color(97,160,175));
         this.lblid = new JLabel("id: ");
@@ -54,14 +54,14 @@ public class Ventana extends JFrame {
         this.lblTipoMago = new JLabel("Tipo de Mago: ");
         this.lblVocacion = new JLabel("Vocacion: ");
         this.lblUrl= new JLabel("Url de la imagen: ");
-        this.txtid = new JTextField(25);
+        this.txtid = new JTextField(15);
         this.txtid.setText("0");
         this.txtid.setEnabled(false);
-        this.txtNombre = new JTextField(35);
-        this.txtCasa = new JTextField(35);
-        this.txtTipoMago = new JTextField(35);
-        this.txtVocacion = new JTextField(35);
-        this.txtUrl = new JTextField(35);
+        this.txtNombre = new JTextField(20);
+        this.txtCasa = new JTextField(20);
+        this.txtTipoMago = new JTextField(20);
+        this.txtVocacion = new JTextField(20);
+        this.txtUrl = new JTextField(20 );
         this.btnAgregar = new JButton("Agregar");
         this.panel1.add(this.lblid);
         this.panel1.add(this.txtid);

@@ -41,7 +41,6 @@ public class Controlador extends MouseAdapter {
             mago.setVocacion(this.view.getTxtVocacion().getText());
             mago.setUrl(this.view.getTxtUrl().getText());
             if (this.modelo.agregarMago(mago)) {
-                JOptionPane.showMessageDialog(this.view, "Se agrego correctamente el mago", "Aviso", 1);
                 this.view.getTblMagos().updateUI();
             } else {
                 JOptionPane.showMessageDialog(this.view, "No se pudo agregar el mago a la base", "Error al insertar mago", 0);
@@ -68,10 +67,9 @@ public class Controlador extends MouseAdapter {
             row = this.view.getTblMagos().getSelectedRow();
             index = String.valueOf(this.modelo.getValueAt(row, 0));
             System.out.println(index);
-            int respuesta = JOptionPane.showConfirmDialog(this.view, "Estas seguro de borrar este mago?", "Selecione un mago", 0);
-            if (respuesta == 0) {
+
+            if (e.getSource() == this.view.getBtnBorrar()) {
                 this.modelo.borrarMago(index);
-                JOptionPane.showMessageDialog(this.view, "El mago fue borrado", "Aviso", 1);
             } else {
                 JOptionPane.showMessageDialog(this.view, "El mago no fue eliminado", "Error al borrar el mago", 0);
             }
@@ -93,7 +91,6 @@ public class Controlador extends MouseAdapter {
             mago.setUrl(this.view.getTxtNwUrl().getText());
             mago.setId(Integer.parseInt(index));
             if (this.modelo.actualizarMago(mago)) {
-                JOptionPane.showMessageDialog(this.view, "Se ha modificado el mago", "Aviso", 1);
                 this.view.getTblMagos().updateUI();
             } else {
                 JOptionPane.showMessageDialog(this.view, "No se pudo modificar el mago", "Error", 0);
@@ -103,6 +100,7 @@ public class Controlador extends MouseAdapter {
             this.modelo.cargarDatos();
             this.view.getTblMagos().setModel(this.modelo);
             this.view.getTblMagos().updateUI();
+            this.view.limpiar();
         }
 
         this.view.getTblMagos().updateUI();
